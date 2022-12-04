@@ -16,7 +16,7 @@ COPY . .
 RUN yarn build
 
 # Stage 2 - the production environment
-FROM nginx:alpine
+FROM nginx:alpine@sha256:455c39afebd4d98ef26dd70284aa86e6810b0485af5f4f222b19b89758cabf1e
 COPY --from=react-build /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
